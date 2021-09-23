@@ -1,0 +1,12 @@
+services:
+  nginx_proxy:
+    image: nginx:stable-alpine
+    read_only: false
+    container_name: nginx_proxy
+    restart: unless-stopped
+    tty: true
+    ports:
+      - 80:80
+    volumes:
+      - ./conf:/etc/nginx/conf.d:ro
+      - ../:/var/www
